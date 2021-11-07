@@ -11,6 +11,7 @@ dotenv.config();
 //import routes
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const postRoutes = require('./routes/posts');
 
 
 //middlewares
@@ -19,8 +20,9 @@ app.use(helmet());
 app.use(morgan("common"));
 
 // use routes
-app.use('/api/user', userRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/posts', postRoutes);
 
 app.get("/", (req, res, next) => {
     res.send("<h1>Welcome to this application</h1>");
